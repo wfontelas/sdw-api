@@ -22,10 +22,13 @@ public class UserServiceImpl implements UserService {
 
     }
 
+
     @Override
     public User create(User userToCreate) {
         if (userRepository.existsByAccountNumber(userToCreate.getAccount().getNumber())){
             throw new IllegalArgumentException("This Account number already exists;");
+        } else if (userRepository.existsByCardNumber(userToCreate.getCard().getNumber())) {
+            throw new IllegalArgumentException("This Card number already exists;");
         }
         return userRepository.save(userToCreate);
     }
