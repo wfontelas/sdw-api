@@ -34,7 +34,7 @@ dependencies {
 
 tasks.jar {
 	manifest {
-		attributes["Main-Class"] = ""
+		attributes["Main-Class"] = "java/me/dio/api/Application.java"
 	}
 }
 
